@@ -1,36 +1,40 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState('');
+
+  const addTodo = () => {
+    if (input.trim() !== '') {
+      setTodos([...todos, input]);
+      setInput('');
+    }
+  };
+
+  const removeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
 
   return (
-    <>
-      <div className="app">
-      <div className="mainHeading">
-        <h1>ToDo List</h1>
+    <div className="todo-app">
+      <h1>Todo List</h1>
+      <div className="todo-input">
+        <input type="text" value={input} onChange={(e) => setInput(e.target.value)}placeholder="Add a new Task"/>
+        <button onClick={addTodo}><i className="fas fa-plus"></i></button>
       </div>
-      <div className="subHeading">
-        <br />
-        <h2>Whoop, it's Wednesday 🌝 ☕ </h2>
-      </div>
-      <div className="input">
-        <input type="text" placeholder="🖊️ Add item..." />
-        <i className="fas fa-plus"></i>
-      </div>
-      <div className="todos">
-        <div className="todo">
-          <div className="left">
-            <input type="checkbox" name="" id="" />
-            <p>Rect tutorial</p>
-          </div>
-          <div className="right">
-            <i className="fas fa-times"></i>
-          </div>
-        </div>
-      </div>
+      <ul className="todo-list">
+        {todos.map((todo, index) => (
+          <li key={index}>
+            <input type='checkbox' name="" id='' />
+            {todo}
+            <button onClick={() => removeTodo(index)}><i className="fas fa-trash"></i></button>
+          </li>
+        ))}
+      </ul>
     </div>
-    </>
-  )
+  );
 }
 
-export default App
+export default App;

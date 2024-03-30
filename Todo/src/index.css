@@ -1,87 +1,100 @@
-* {
-  margin: 0;
+.spotlight {
+  z-index: 999;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #2696e8,0 0 60px #2696e8,0 0 100px #2696e8;
+  pointer-events: none;
+  background: #2696e8;
+  animation: colors 2s infinite;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+@keyframes colors{
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}
+.spotlight::before{
+  content: '';
+  position: absolute;
+  background: #2696e8;
+  height: 50px;
+  width: 50px;
+  opacity: 0.2;
+  transform: translate(-30%, -30%);
+  border-radius: 50%;
+}
+
+.todo-app {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  backdrop-filter: blur(6px);
+}
+
+.todo-input {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 3px 0 0 3px;
+}
+
+.todo-input button {
+  padding: 8px 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+
+.todo-list {
+  list-style: none;
   padding: 0;
 }
 
-body {
-  background-color: #020631;
-}
-
-.app {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -10%);
-}
-
-.app .mainHeading h1 {
-  text-align: center;
-}
-
-.app h1,
-h2 {
-  color: white;
-}
-
-.app .input {
+.todo-list li {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.app .input {
-  margin-top: 0.8em;
-  width: 20em;
-  height: 2em;
-  background-color: white;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
-  border-radius: 6px;
-  padding: 5px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 
-.app .input input {
-  width: 100%;
-  height: 1.6em;
-  border-color: transparent;
-  outline-color: transparent;
+.todo-list li:last-child {
+  border-bottom: none;
 }
 
-.app i {
+.todo-list li button {
+  background: none;
+  border: none;
   cursor: pointer;
-  font-size: larger;
-  font-weight: 900;
-  color: grey;
-  margin-right: 5px;
-}
-.app .todos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.app .todos .todo {
-  margin-top: 0.8em;
-  width: 20em;
-  height: 2em;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 6px;
-  padding: 5px;
-}
-.app .todos .todo .left {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
 }
 
-.app .todos .todo .left p {
-  margin-left: 3px;
-  font-size: medium;
-  font-weight: 700;
-  font-style: normal;
-  color: grey;
+.fa-trash {
+  color: red;
+}
+
+body{
+  justify-content: center;
+  align-items: center;
+  background-image: url('assests/bg.jpg');
+  display:flex;
+  height: 100vh;
 }
