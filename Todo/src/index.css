@@ -1,4 +1,4 @@
-.spotlight {
+/*.spotlight {
   z-index: 999;
   position: absolute;
   width: 20px;
@@ -28,18 +28,7 @@
   opacity: 0.2;
   transform: translate(-30%, -30%);
   border-radius: 50%;
-}
-
-.todo-app {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-  backdrop-filter: blur(6px);
-}
+}*/
 
 .todo-input {
   display: flex;
@@ -93,8 +82,8 @@
 
 body{
   justify-content: center;
-  align-items: center;
   background-image: url('assests/bg.jpg');
   display:flex;
   height: 100vh;
+
 }
